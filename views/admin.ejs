@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Complaints</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet"> <!-- Including a decorative font similar to Pinsetter -->
+    <style>
+        body {
+            background-color: #434546;
+            color: #000;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .card {
+            margin: 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.75rem;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.8), 0 0 30px 10px rgba(0, 255, 255, 0.6), 0 0 40px 15px rgba(0, 255, 255, 0.4);
+        }
+        .card img {
+            height: 200px;
+            width: 100%;
+            object-fit: contain;
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+            background-color: #fff; /* To make sure any empty space around the image is white */
+        }
+        .card-body h5 {
+            margin: 0.5rem 0;
+        }
+        h1 {
+            margin: 2rem 0;
+            color: #000000; /* Changed to grey for visibility */
+            font-family: 'hand-crafted', cursive; /* Using a decorative font similar to Pinsetter */
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin</h1>
+        <div class="row justify-content-center">
+            <% complaints.forEach(function (x){ %>    
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<%= '/' + x.img_path %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5>Name: <%= x.name %></h5>
+                            <h5>Email: <%= x.email %></h5>
+                            <h5>Location: <%= x.location %></h5>
+                            <h5>Complaint: <%= x.message %></h5>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
